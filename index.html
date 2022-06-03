@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kindle：作为一款泡面神器</title>
+	<script>
+		var countdown = 300;
+		function settime(val) {
+			//停止倒计时
+			if (countdown == 0) {
+				val.removeAttribute("disabled")
+				val.value = "再来一碗！"
+				countdown = 300
+				alert("可以吃了!")
+			} else {
+				val.setAttribute("disabled", true)
+				val.value = "请耐心等待"
+				countdown--
+
+				var nM = Math.floor(countdown / 60)
+				var nS = Math.floor(countdown) % 60
+
+				document.getElementById("RemainM").innerHTML = nM;
+				document.getElementById("RemainS").innerHTML = nS;
+
+				setTimeout(function () {
+					settime(val)
+				}, 1000)
+			}
+		}
+	</script>
+	<style>
+		/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, menu, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+    display: none;
+}
+menu, ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+	</style>
+</head>
+<body>
+	<div style="font-size:3em; text-align: center; margin-top: 1em; margin-bottom: 1em;">
+		<h1>Kindle：一种泡面伴侣</h1>
+	</div>
+	<div style="border: 1px dashed #333333; font-size: 1.5em; font-weight: bold; text-align: center;padding: 0.5em 0.5em; margin: .2em 1em 1em;">
+		<p>警告：您的 Kindle 里有一本《三体》，请不要直接盖在泡面上：二向箔打击下，泡面的口味会变得过于平淡。</p>
+	</div>
+
+	<div style="font-size:2.5em; text-align:center;"><span>美味倒计时</span></div>
+
+	<div style=font-size:10em>
+		<center>
+			<strong id="RemainM">5</strong>:<strong id="RemainS">00</strong>
+		</center>
+	</div>
+	<div style="font-size: 1.4em; text-align: center; margin: 1em;">请将 Kindle 置于泡面上，然后点击“开始泡面”。</div>
+	<div>
+		<center>
+			<input type="button" style="width:600px; height:90px;font-size:2.2em;text-align:center" value="开始泡面" onclick="settime(this)">
+		</center>
+	</div>
+	<footer style="text-align: center;bottom: 2.3em;position: absolute; width: 100%;">
+		<div style="font-weight: bold; font-size: 1.2em">谨此纪念即将退出中国市场的 Kindle</div>
+		<div>这个页面衍生自<a target="_blank" rel="noopener noreferrer" href="https://maemo.cc/">Maemo Lee</a>的<a target="_blank" rel="noopener noreferrer" href="https://maemo.cc/Timer/">作品</a>。</div>
+	</footer>
+</body>
+</html>
